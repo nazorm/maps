@@ -18,6 +18,7 @@ class App extends React.Component {
 		this.getUserLocation = this.getUserLocation.bind(this);
 	}
 	componentDidMount() {
+       console.log(process.env.REACT_APP_KEY)
 		this.setState({isLoading:true})
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.getUserLocation);
