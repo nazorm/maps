@@ -42,7 +42,7 @@ class App extends React.Component {
 	showPosition(place) {
 		this.setState({ isLoading: true });
 		//console.log(this.state.long + ' ' + this.state.lat);
-		let key = 'AIzaSyDAE1Gb-3D6u8AJylnXqY8eko7Wi5pbAK8';
+		let key = `${process.env.REACT_APP_KEY}`;
 		fetch(
 			`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.long}&radius=1500&type=${place}&keyword=${place}&key=${key}`,
 			{
@@ -72,7 +72,7 @@ class App extends React.Component {
 	handleClick() {
 		this.setState({ isLoading: true });
 		let place = this.state.landmark;
-		let key = 'AIzaSyDAE1Gb-3D6u8AJylnXqY8eko7Wi5pbAK8';
+		let key = `${process.env.REACT_APP_KEY}`;
 		fetch(
 			`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${place}&key=${key}`,
 			{
