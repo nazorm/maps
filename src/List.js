@@ -21,7 +21,6 @@ class List extends React.Component {
         />
       );
     });
-    //console.log(this.props.places);
     return (
       <div className="container">
       
