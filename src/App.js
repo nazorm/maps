@@ -18,7 +18,6 @@ class App extends React.Component {
 		this.getUserLocation = this.getUserLocation.bind(this);
 	}
 	componentDidMount() {
-       console.log(process.env.REACT_APP_KEY)
 		this.setState({isLoading:true})
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(this.getUserLocation);
@@ -41,7 +40,6 @@ class App extends React.Component {
 
 	showPosition(place) {
 		this.setState({ isLoading: true });
-		//console.log(this.state.long + ' ' + this.state.lat);
 		let key = `${process.env.REACT_APP_KEY}`;
 		fetch(
 			`https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${this.state.lat},${this.state.long}&radius=1500&type=${place}&keyword=${place}&key=${key}`,
@@ -55,7 +53,6 @@ class App extends React.Component {
 		)
 			.then((resp) => resp.json())
 			.then((d) => {
-			//	console.log(d);
 				this.setState({
 					places: d.results,
 					isLoading: false,
@@ -89,7 +86,7 @@ class App extends React.Component {
 					places: d.results,
 					isLoading: false,
 				});
-				// console.log(this.state.places);
+
 			});
 	}
 	render() {
